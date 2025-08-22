@@ -20,13 +20,11 @@ final class SprzedazCtrl
         $this->liczbaWierszySprzedaz = new ParameterBag(
             "LiczbaWierszySprzedaz",
             "float",
-            false
         );
 
         $this->podatekNalezny = new ParameterBag(
             "PodatekNalezny",
             "float",
-            false
         );
     }
 

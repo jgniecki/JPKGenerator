@@ -23,7 +23,6 @@ final class Ewidencja
         $this->sprzedazCtrl = new ParameterBag(
             "SprzedazCtrl",
             SprzedazCtrl::class,
-            false
         );
     }
 
@@ -32,7 +31,6 @@ final class Ewidencja
         $parameterBag = new ParameterBag(
             "SprzedazWiersz",
             SprzedazWiersz::class,
-            false
         );
 
         $parameterBag->setValue($sprzedazWiersz);

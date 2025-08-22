@@ -19,7 +19,6 @@ class Document
         $this->jpk = new ParameterBag(
             "JPK",
             JPK::class,
-            true,
             [
                 'xmlns:etd', 'xmlns:tns'
             ]

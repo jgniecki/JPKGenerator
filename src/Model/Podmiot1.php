@@ -19,7 +19,6 @@ final class Podmiot1
         $this->osobaFizyczna = new ParameterBag(
             "OsobaFizyczna",
             OsobaFizyczna::class,
-            false,
         );
     }
 
