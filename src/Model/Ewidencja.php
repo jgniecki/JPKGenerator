@@ -16,6 +16,17 @@ final class Ewidencja
      * @var ParameterBag<SprzedazWiersz>[]
      */
     private array $sprzedazWiersz = [];
+    private ParameterBag $sprzedazCtrl;
+
+    public function __construct()
+    {
+        $this->sprzedazCtrl = new ParameterBag(
+            "SprzedazCtrl",
+            SprzedazCtrl::class,
+            false
+        );
+    }
+
     public function addSprzedazWiersz(SprzedazWiersz $sprzedazWiersz): self
     {
         $parameterBag = new ParameterBag(
@@ -60,5 +71,24 @@ final class Ewidencja
         }
 
         $this->sprzedazWiersz = $sort;
+    }
+
+    /**
+     * @return ParameterBag<SprzedazWiersz>[]
+     */
+    public function getAllSprzedazWiersz(): array
+    {
+        return $this->sprzedazWiersz;
+    }
+
+    public function getSprzedazCtrl(): ParameterBag
+    {
+        return $this->sprzedazCtrl;
+    }
+
+    public function setSprzedazCtrl(ParameterBag $sprzedazCtrl): static
+    {
+        $this->sprzedazCtrl = $sprzedazCtrl;
+        return $this;
     }
 }
