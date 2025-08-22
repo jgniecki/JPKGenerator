@@ -16,6 +16,8 @@ final  class PozycjeSzczegolowe
     private ParameterBag $p_12;
     private ParameterBag $p_19;
     private ParameterBag $p_20;
+    private ParameterBag $p_37;
+    private ParameterBag $p_38;
     public function __construct()
     {
         $this->p_11 = new ParameterBag(
@@ -32,6 +34,14 @@ final  class PozycjeSzczegolowe
         );
         $this->p_20 = new ParameterBag(
             "P_20",
+            "float",
+        );
+        $this->p_37 = new ParameterBag(
+            "P_37",
+            "float",
+        );
+        $this->p_38 = new ParameterBag(
+            "P_38",
             "float",
         );
     }
@@ -77,6 +87,28 @@ final  class PozycjeSzczegolowe
     public function setP20(ParameterBag $p_20): static
     {
         $this->p_20 = $p_20;
+        return $this;
+    }
+
+    public function getP37(): ParameterBag
+    {
+        return $this->p_37;
+    }
+
+    public function setP37(ParameterBag $p_37): static
+    {
+        $this->p_37 = $p_37;
+        return $this;
+    }
+
+    public function getP38(): ParameterBag
+    {
+        return $this->p_38;
+    }
+
+    public function setP38(ParameterBag $p_38): static
+    {
+        $this->p_38 = $p_38;
         return $this;
     }
 }
