@@ -10,7 +10,7 @@ namespace DevLancer\JPKGenerator\Model;
 
 use DevLancer\JPKGenerator\ParameterBag;
 
-final class NaglowekDeklaracja
+final class DeklaracjaNaglowek
 {
     private ParameterBag $kodFormularzaDekl;
     private ParameterBag $wariantFormularzaDekl;

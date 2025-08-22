@@ -19,7 +19,7 @@ final class Deklaracja
     {
         $this->naglowek = new ParameterBag(
             "Naglowek",
-            NaglowekDeklaracja::class,
+            DeklaracjaNaglowek::class,
         );
 
         $this->pozycjeSzczegolowe = new ParameterBag(
