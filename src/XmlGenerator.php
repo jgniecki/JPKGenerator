@@ -61,11 +61,21 @@ final class XmlGenerator
             $ref = new ReflectionClass($value);
             foreach ($ref->getProperties() as $property) {
                 $property->setAccessible(true);
-                $childBag = $property->getValue($value);
-                if ($childBag instanceof ParameterBag) {
-                    $childElement = $this->createElement($dom, $childBag);
+                $childValue = $property->getValue($value);
+
+                if ($childValue instanceof ParameterBag) {
+                    $childElement = $this->createElement($dom, $childValue);
                     if ($childElement !== null) {
                         $element->appendChild($childElement);
+                    }
+                } elseif (is_array($childValue)) {
+                    foreach ($childValue as $childBag) {
+                        if ($childBag instanceof ParameterBag) {
+                            $childElement = $this->createElement($dom, $childBag);
+                            if ($childElement !== null) {
+                                $element->appendChild($childElement);
+                            }
+                        }
                     }
                 }
             }
