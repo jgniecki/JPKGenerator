@@ -27,6 +27,8 @@ final class Ewidencja
         $parameterBag->setValue($sprzedazWiersz);
 
         $this->sprzedazWiersz[] = $parameterBag;
+        $this->regenerateLpSprzedazy();
+
         return $this;
     }
 
@@ -36,17 +38,26 @@ final class Ewidencja
          * @var ParameterBag<SprzedazWiersz>[] $sort
          */
         $sort = $this->sprzedazWiersz;
+
+        usort($sort, function (ParameterBag $a, ParameterBag $b) {
+            /** @var SprzedazWiersz $valueA */
+            $valueA = $a->getValue();
+            /** @var SprzedazWiersz $valueB */
+            $valueB = $b->getValue();
+
+            $dateA = $valueA->getDataWystawienia()->getValue();
+            $dateB = $valueB->getDataWystawienia()->getValue();
+
+            return $dateA->getTimestamp() <=> $dateB->getTimestamp();
+        });
+
         $lp = 1;
-        //todo sorotwanie {
-        /**
-         * @var SprzedazWiersz $value
-         */
-        //todo sporotuj według getDataWystawienia:
-        //$value = $sprzedazWiersz->getValue();
-        //$value->getDataWystawienia();
-        //$value->setLpSprzedazy($lp);
-        //}
-        //$lp++;
+        foreach ($sort as $bag) {
+            /** @var SprzedazWiersz $value */
+            $value = $bag->getValue();
+            $value->getLpSprzedazy()->setValue($lp);
+            $lp++;
+        }
 
         $this->sprzedazWiersz = $sort;
     }
