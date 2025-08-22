@@ -21,7 +21,8 @@ class Document
             JPK::class,
             [
                 'xmlns:etd', 'xmlns:tns'
-            ]
+            ],
+            'tns'
         );
     }
 

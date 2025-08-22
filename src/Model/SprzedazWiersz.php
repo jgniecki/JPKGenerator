@@ -30,56 +30,78 @@ final class SprzedazWiersz
         $this->lpSprzedazy = new ParameterBag(
             "LpSprzedazy",
             "int",
+            [],
+            "tns"
         );
 
         $this->kodKrajuNadaniaTIN = new ParameterBag(
             "KodKrajuNadaniaTIN",
             "string",
+            [],
+            "tns"
         );
 
         $this->nrKontrahenta = new ParameterBag(
             "NrKontrahenta",
             "string",
+            [],
+            "tns"
         );
 
         $this->nazwaKontrahenta = new ParameterBag(
             "NazwaKontrahenta",
             "string",
+            [],
+            "tns"
         );
 
         $this->dowodSprzedazy = new ParameterBag(
             "DowodSprzedazy",
             "string",
+            [],
+            "tns"
         );
 
         $this->dataWystawienia = new ParameterBag(
             "DataWystawienia",
             DateTime::class,
+            [],
+            "tns"
         );
 
         $this->dataSprzedazy = new ParameterBag(
             "DataSprzedazy",
             DateTime::class,
+            [],
+            "tns"
         );
 
         $this->k_11 = new ParameterBag(
             "K_11",
             "float",
+            [],
+            "tns"
         );
 
         $this->k_12 = new ParameterBag(
             "K_12",
             "float",
+            [],
+            "tns"
         );
 
         $this->k_19 = new ParameterBag(
             "K_19",
             "float",
+            [],
+            "tns"
         );
 
         $this->k_20 = new ParameterBag(
             "K_20",
             "float",
+            [],
+            "tns"
         );
     }
 

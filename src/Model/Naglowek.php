@@ -27,42 +27,56 @@ final class Naglowek
         $this->kodFormularza = new ParameterBag(
             "KodFormularza",
             "string",
-            ["kodSystemowy", "wersjaSchemy"]
+            ["kodSystemowy", "wersjaSchemy"],
+            'tns'
         );
 
         $this->wariantFormularza = new ParameterBag(
             "WariantFormularza",
             "int",
+            [],
+            'tns'
         );
 
         $this->dataWytworzeniaJPK = new ParameterBag(
             "DataWytworzeniaJPK",
             DateTime::class,
+            [],
+            'tns'
         );
 
         $this->nazwaSystemu = new ParameterBag(
             "NazwaSystemu",
             "string",
+            [],
+            'tns'
         );
 
         $this->celZlozenia = new ParameterBag(
             "CelZlozenia",
             "int",
-            ["poz"]
+            ["poz"],
+            'tns'
         );
 
         $this->kodUrzedu = new ParameterBag(
             "KodUrzedu",
             "int",
+            [],
+            'tns'
         );
         $this->rok = new ParameterBag(
             "Rok",
             "int",
+            [],
+            'tns'
         );
 
         $this->miesiac = new ParameterBag(
             "Miesiac",
             "int",
+            [],
+            'tns'
         );
     }
 

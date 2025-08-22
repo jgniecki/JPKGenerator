@@ -23,6 +23,8 @@ final class Ewidencja
         $this->sprzedazCtrl = new ParameterBag(
             "SprzedazCtrl",
             SprzedazCtrl::class,
+            [],
+            "tns"
         );
     }
 
@@ -31,6 +33,8 @@ final class Ewidencja
         $parameterBag = new ParameterBag(
             "SprzedazWiersz",
             SprzedazWiersz::class,
+            [],
+            "tns"
         );
 
         $parameterBag->setValue($sprzedazWiersz);

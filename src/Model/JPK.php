@@ -22,22 +22,27 @@ final class JPK
         $this->naglowek = new ParameterBag(
             "Naglowek",
             Naglowek::class,
+            [],
+            'tns'
         );
         $this->podmiot1 = new ParameterBag(
             "Podmiot1",
             Podmiot1::class,
-            ['rola']
+            ['rola'],
+            'tns'
         );
         $this->deklaracja = new ParameterBag(
             "Deklaracja",
             Deklaracja::class,
             [
                 'xmlns', 'xmlns:tns', 'xmlns:etd'
-            ]
+            ],
         );
         $this->ewidencja = new ParameterBag(
             "Ewidencja",
             Ewidencja::class,
+            [],
+            'tns'
         );
     }
 

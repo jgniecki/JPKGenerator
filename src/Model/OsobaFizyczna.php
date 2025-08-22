@@ -23,23 +23,34 @@ final class OsobaFizyczna
         $this->nip = new ParameterBag(
             "NIP",
             "string",
+            [],
+            'etd'
         );
 
         $this->imiePierwsze = new ParameterBag(
             "ImiePierwsze",
             "string",
+            [],
+            'etd'
         );
         $this->nazwisko = new ParameterBag(
             "Nazwisko",
             "string",
+            [],
+            'etd'
         );
         $this->dataUrodzenia = new ParameterBag(
             "DataUrodzenia",
             \DateTime::class,
+
+            [],
+            'etd'
         );
         $this->email = new ParameterBag(
             "Email",
             "string",
+            [],
+            'tns'
         );
     }
 
