@@ -14,6 +14,7 @@ final class JPK
 {
     private ParameterBag $naglowek;
     private ParameterBag $podmiot1;
+    private ParameterBag $deklaracja;
     private ParameterBag $ewidencja;
 
     public function __construct()
@@ -26,7 +27,16 @@ final class JPK
         $this->podmiot1 = new ParameterBag(
             "Podmiot1",
             Podmiot1::class,
-            false
+            false,
+            ['rola']
+        );
+        $this->deklaracja = new ParameterBag(
+            "Deklaracja",
+            Deklaracja::class,
+            false,
+            [
+                'xmlns', 'xmlns:tns', 'xmlns:etd'
+            ]
         );
         $this->ewidencja = new ParameterBag(
             "Ewidencja",
@@ -54,6 +64,17 @@ final class JPK
     public function setPodmiot1(ParameterBag $podmiot1): static
     {
         $this->podmiot1 = $podmiot1;
+        return $this;
+    }
+
+    public function getDeklaracja(): ParameterBag
+    {
+        return $this->deklaracja;
+    }
+
+    public function setDeklaracja(ParameterBag $deklaracja): static
+    {
+        $this->deklaracja = $deklaracja;
         return $this;
     }
 
