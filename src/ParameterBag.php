@@ -14,6 +14,7 @@ namespace DevLancer\JPKGenerator;
  */
 class ParameterBag
 {
+    private ?string $prefix;
     private string $tagName;
     private string $typeValue;
     /**
@@ -23,11 +24,12 @@ class ParameterBag
     private array $attributesList;
     private array $attributes = [];
 
-    public function __construct(string $tagName, string $typeValue, array $attributesList = [])
+    public function __construct(string $tagName, string $typeValue, array $attributesList = [], ?string $prefix = null)
     {
         $this->tagName = $tagName;
         $this->typeValue = $typeValue;
         $this->attributesList = $attributesList;
+        $this->prefix = $prefix;
     }
 
     /**
@@ -102,5 +104,15 @@ class ParameterBag
     public function getTagName(): string
     {
         return $this->tagName;
+    }
+
+    public function getPrefix(): ?string
+    {
+        return $this->prefix;
+    }
+
+    public function setPrefix(?string $prefix): void
+    {
+        $this->prefix = $prefix;
     }
 }
