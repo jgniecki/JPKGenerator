@@ -22,18 +22,15 @@ final class JPK
         $this->naglowek = new ParameterBag(
             "Naglowek",
             Naglowek::class,
-            false
         );
         $this->podmiot1 = new ParameterBag(
             "Podmiot1",
             Podmiot1::class,
-            false,
             ['rola']
         );
         $this->deklaracja = new ParameterBag(
             "Deklaracja",
             Deklaracja::class,
-            false,
             [
                 'xmlns', 'xmlns:tns', 'xmlns:etd'
             ]
@@ -41,7 +38,6 @@ final class JPK
         $this->ewidencja = new ParameterBag(
             "Ewidencja",
             Ewidencja::class,
-            false
         );
     }
 

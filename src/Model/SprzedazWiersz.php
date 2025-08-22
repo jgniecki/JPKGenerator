@@ -30,67 +30,56 @@ final class SprzedazWiersz
         $this->lpSprzedazy = new ParameterBag(
             "LpSprzedazy",
             "int",
-            false
         );
 
         $this->kodKrajuNadaniaTIN = new ParameterBag(
             "KodKrajuNadaniaTIN",
             "string",
-            false
         );
 
         $this->nrKontrahenta = new ParameterBag(
             "NrKontrahenta",
             "string",
-            true
         );
 
         $this->nazwaKontrahenta = new ParameterBag(
             "NazwaKontrahenta",
             "string",
-            false,
         );
 
         $this->dowodSprzedazy = new ParameterBag(
             "DowodSprzedazy",
             "string",
-            false
         );
 
         $this->dataWystawienia = new ParameterBag(
             "DataWystawienia",
             DateTime::class,
-        false
         );
 
         $this->dataSprzedazy = new ParameterBag(
             "DataSprzedazy",
             DateTime::class,
-            true,
         );
 
         $this->k_11 = new ParameterBag(
             "K_11",
             "float",
-            true,
         );
 
         $this->k_12 = new ParameterBag(
             "K_12",
             "float",
-            true,
         );
 
         $this->k_19 = new ParameterBag(
             "K_19",
             "float",
-            true,
         );
 
         $this->k_20 = new ParameterBag(
             "K_20",
             "float",
-            true,
         );
     }
 

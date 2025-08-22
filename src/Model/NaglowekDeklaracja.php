@@ -19,7 +19,6 @@ final class NaglowekDeklaracja
         $this->kodFormularzaDekl = new ParameterBag(
             "KodFormularzaDekl",
             "string",
-            false,
             [
                 "kodPodatku",
                 "kodSystemowy",
@@ -31,7 +30,6 @@ final class NaglowekDeklaracja
         $this->wariantFormularzaDekl = new ParameterBag(
             "WariantFormularzaDekl",
             "int",
-            false,
         );
     }
 

@@ -20,18 +20,15 @@ final class Deklaracja
         $this->naglowek = new ParameterBag(
             "Naglowek",
             NaglowekDeklaracja::class,
-            false,
         );
 
         $this->pozycjeSzczegolowe = new ParameterBag(
             "PozycjeSzczegolowe",
             PozycjeSzczegolowe::class,
-            false,
         );
         $this->pouczenia = new ParameterBag(
             "Pouczenia",
             "int",
-            false,
         );
     }
 
