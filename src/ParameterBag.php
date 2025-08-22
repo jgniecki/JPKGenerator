@@ -23,13 +23,15 @@ class ParameterBag
     private mixed $value = null;
     private array $attributesList;
     private array $attributes = [];
+    private bool $required;
 
-    public function __construct(string $tagName, string $typeValue, bool $nullable = true, array $attributesList = [])
+    public function __construct(string $tagName, string $typeValue, bool $nullable = true, array $attributesList = [], bool $required = false)
     {
         $this->tagName = $tagName;
         $this->typeValue = $typeValue;
         $this->nullable = $nullable;
         $this->attributesList = $attributesList;
+        $this->required = $required;
     }
 
     /**
@@ -101,5 +103,15 @@ class ParameterBag
     public function getTagName(): string
     {
         return $this->tagName;
+    }
+
+    public function isRequired(): bool
+    {
+        return $this->required;
+    }
+
+    public function setRequired(bool $required): void
+    {
+        $this->required = $required;
     }
 }
