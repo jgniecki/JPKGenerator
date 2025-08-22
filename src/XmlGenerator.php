@@ -9,22 +9,8 @@ use DateTimeInterface;
 
 final class XmlGenerator
 {
-    private const DEFAULT_PREFIX = 'tns';
-    /**
-     * Mapping of element names to namespace prefixes
-     * @var array<string,string>
-     */
-    private array $prefixMap;
-
-    public function __construct(array $prefixMap = [])
+    public function __construct()
     {
-        // default mapping for elements that should use 'etd' prefix
-        $this->prefixMap = $prefixMap + [
-            'NIP' => 'etd',
-            'ImiePierwsze' => 'etd',
-            'Nazwisko' => 'etd',
-            'DataUrodzenia' => 'etd',
-        ];
     }
 
     public function generate(Document $document): string
@@ -90,7 +76,9 @@ final class XmlGenerator
 
     private function resolveTagName(string $name, ?string $prefix = null): string
     {
-        $prefix = $prefix ?? ($this->prefixMap[$name] ?? self::DEFAULT_PREFIX);
+        if (!$prefix) {
+            return $name;
+        }
         return $prefix !== '' ? $prefix . ':' . $name : $name;
     }
 
