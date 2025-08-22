@@ -45,7 +45,9 @@ final class XmlGenerator
             }
         }
 
-        if (is_object($value)) {
+        if ($value instanceof DateTimeInterface || !is_object($value)) {
+            $element->nodeValue = $this->scalarValue($bag);
+        } else {
             $ref = new ReflectionClass($value);
             foreach ($ref->getProperties() as $property) {
                 $property->setAccessible(true);
@@ -67,8 +69,6 @@ final class XmlGenerator
                     }
                 }
             }
-        } else {
-            $element->nodeValue = $this->scalarValue($bag);
         }
 
         return $element;
