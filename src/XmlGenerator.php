@@ -38,7 +38,9 @@ final class XmlGenerator
             $dom->appendChild($rootElement);
         }
 
-        return $dom->saveXML();
+        return $dom->documentElement !== null
+            ? $dom->saveXML($dom->documentElement) ?: ''
+            : '';
     }
 
     private function createElement(DOMDocument $dom, ParameterBag $bag): ?DOMElement
