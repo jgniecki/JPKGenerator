@@ -44,7 +44,7 @@ final class OsobaFizyczna
         $this->email = new ParameterBag(
             "Email",
             "string",
-            true
+            false
         );
     }
 

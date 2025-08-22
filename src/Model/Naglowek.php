@@ -79,9 +79,10 @@ final class Naglowek
         return $this->kodFormularza;
     }
 
-    public function setKodFormularza(ParameterBag $kodFormularza): void
+    public function setKodFormularza(ParameterBag $kodFormularza): static
     {
         $this->kodFormularza = $kodFormularza;
+        return $this;
     }
 
     public function getWariantFormularza(): ParameterBag
@@ -89,9 +90,10 @@ final class Naglowek
         return $this->wariantFormularza;
     }
 
-    public function setWariantFormularza(ParameterBag $wariantFormularza): void
+    public function setWariantFormularza(ParameterBag $wariantFormularza): static
     {
         $this->wariantFormularza = $wariantFormularza;
+        return $this;
     }
 
     public function getDataWytworzeniaJPK(): ParameterBag
@@ -99,9 +101,10 @@ final class Naglowek
         return $this->dataWytworzeniaJPK;
     }
 
-    public function setDataWytworzeniaJPK(ParameterBag $dataWytworzeniaJPK): void
+    public function setDataWytworzeniaJPK(ParameterBag $dataWytworzeniaJPK): static
     {
         $this->dataWytworzeniaJPK = $dataWytworzeniaJPK;
+        return $this;
     }
 
     public function getNazwaSystemu(): ParameterBag
@@ -109,9 +112,10 @@ final class Naglowek
         return $this->nazwaSystemu;
     }
 
-    public function setNazwaSystemu(ParameterBag $nazwaSystemu): void
+    public function setNazwaSystemu(ParameterBag $nazwaSystemu): static
     {
         $this->nazwaSystemu = $nazwaSystemu;
+        return $this;
     }
 
     public function getCelZlozenia(): ParameterBag
@@ -119,9 +123,10 @@ final class Naglowek
         return $this->celZlozenia;
     }
 
-    public function setCelZlozenia(ParameterBag $celZlozenia): void
+    public function setCelZlozenia(ParameterBag $celZlozenia): static
     {
         $this->celZlozenia = $celZlozenia;
+        return $this;
     }
 
     public function getKodUrzedu(): ParameterBag
@@ -129,9 +134,10 @@ final class Naglowek
         return $this->kodUrzedu;
     }
 
-    public function setKodUrzedu(ParameterBag $kodUrzedu): void
+    public function setKodUrzedu(ParameterBag $kodUrzedu): static
     {
         $this->kodUrzedu = $kodUrzedu;
+        return $this;
     }
 
     public function getRok(): ParameterBag
@@ -139,9 +145,10 @@ final class Naglowek
         return $this->rok;
     }
 
-    public function setRok(ParameterBag $rok): void
+    public function setRok(ParameterBag $rok): static
     {
         $this->rok = $rok;
+        return $this;
     }
 
     public function getMiesiac(): ParameterBag
@@ -149,9 +156,10 @@ final class Naglowek
         return $this->miesiac;
     }
 
-    public function setMiesiac(ParameterBag $miesiac): void
+    public function setMiesiac(ParameterBag $miesiac): static
     {
         $this->miesiac = $miesiac;
+        return $this;
     }
 
 
