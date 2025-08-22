@@ -68,7 +68,7 @@ final class XmlGenerator
                 }
             }
         } else {
-            $element->nodeValue = $this->scalarValue($value);
+            $element->nodeValue = $this->scalarValue($bag);
         }
 
         return $element;
@@ -82,11 +82,17 @@ final class XmlGenerator
         return $prefix !== '' ? $prefix . ':' . $name : $name;
     }
 
-    private function scalarValue(mixed $value): string
+    private function scalarValue(ParameterBag $bag): string
     {
+        $value = $bag->getValue();
+
         if ($value instanceof DateTimeInterface) {
-            return $value->format('Y-m-d\TH:i:s\Z');
+            return match ($bag->getTagName()) {
+                'DataWytworzeniaJPK' => $value->format('Y-m-d\TH:i:s\Z'),
+                default => $value->format('Y-m-d'),
+            };
         }
+
         return (string) $value;
     }
 }
