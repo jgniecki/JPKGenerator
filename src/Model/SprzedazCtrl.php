@@ -18,7 +18,7 @@ final class SprzedazCtrl
     public function __construct()
     {
         $this->liczbaWierszySprzedazy = new ParameterBag(
-            "LiczbaWierszySprzedaz",
+            "LiczbaWierszySprzedazy",
             "int",
             [],
             "tns"
