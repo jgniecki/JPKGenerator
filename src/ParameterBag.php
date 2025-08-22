@@ -16,7 +16,6 @@ class ParameterBag
 {
     private string $tagName;
     private string $typeValue;
-    private bool $nullable;
     /**
      * @var T|null
      */
@@ -25,11 +24,10 @@ class ParameterBag
     private array $attributes = [];
     private bool $required;
 
-    public function __construct(string $tagName, string $typeValue, bool $nullable = true, array $attributesList = [], bool $required = false)
+    public function __construct(string $tagName, string $typeValue, bool $required = false, array $attributesList = [])
     {
         $this->tagName = $tagName;
         $this->typeValue = $typeValue;
-        $this->nullable = $nullable;
         $this->attributesList = $attributesList;
         $this->required = $required;
     }
@@ -41,9 +39,7 @@ class ParameterBag
     public function setValue($value): self
     {
         if ($value === null) {
-            if (!$this->nullable) {
-                throw new \InvalidArgumentException(sprintf('%s cannot be null', $this->tagName));
-            }
+            throw new \InvalidArgumentException(sprintf('%s cannot be null', $this->tagName));
         } else {
             if (class_exists($this->typeValue) || interface_exists($this->typeValue)) {
                 if (!($value instanceof $this->typeValue)) {
