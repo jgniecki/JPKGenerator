@@ -84,6 +84,11 @@ class ParameterBag
         return $this;
     }
 
+    public function hasAttribute(string $name): bool
+    {
+        return isset($this->attributes[$name]);
+    }
+
     /**
      * @return mixed
      */
