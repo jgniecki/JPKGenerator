@@ -17,12 +17,24 @@ final class Ewidencja
      */
     private array $sprzedazWiersz = [];
     private ParameterBag $sprzedazCtrl;
+    /**
+     * @var ParameterBag<ZakupWiersz>[]
+     */
+    private array $zakupWiersz = [];
+    private ParameterBag $zakupCtrl;
 
     public function __construct()
     {
         $this->sprzedazCtrl = new ParameterBag(
             "SprzedazCtrl",
             SprzedazCtrl::class,
+            [],
+            "tns"
+        );
+
+        $this->zakupCtrl = new ParameterBag(
+            "ZakupCtrl",
+            ZakupCtrl::class,
             [],
             "tns"
         );
@@ -41,6 +53,23 @@ final class Ewidencja
 
         $this->sprzedazWiersz[] = $parameterBag;
         $this->regenerateLpSprzedazy();
+
+        return $this;
+    }
+
+    public function addZakupWiersz(ZakupWiersz $zakupWiersz): self
+    {
+        $parameterBag = new ParameterBag(
+            "ZakupWiersz",
+            ZakupWiersz::class,
+            [],
+            "tns"
+        );
+
+        $parameterBag->setValue($zakupWiersz);
+
+        $this->zakupWiersz[] = $parameterBag;
+        $this->regenerateLpZakupu();
 
         return $this;
     }
@@ -75,12 +104,50 @@ final class Ewidencja
         $this->sprzedazWiersz = $sort;
     }
 
+    private function regenerateLpZakupu()
+    {
+        /**
+         * @var ParameterBag<ZakupWiersz>[] $sort
+         */
+        $sort = $this->zakupWiersz;
+
+        usort($sort, function (ParameterBag $a, ParameterBag $b) {
+            /** @var ZakupWiersz $valueA */
+            $valueA = $a->getValue();
+            /** @var ZakupWiersz $valueB */
+            $valueB = $b->getValue();
+
+            $dateA = $valueA->getDataZakupu()->getValue();
+            $dateB = $valueB->getDataZakupu()->getValue();
+
+            return $dateA->getTimestamp() <=> $dateB->getTimestamp();
+        });
+
+        $lp = 1;
+        foreach ($sort as $bag) {
+            /** @var ZakupWiersz $value */
+            $value = $bag->getValue();
+            $value->getLpZakupu()->setValue($lp);
+            $lp++;
+        }
+
+        $this->zakupWiersz = $sort;
+    }
+
     /**
      * @return ParameterBag<SprzedazWiersz>[]
      */
     public function getAllSprzedazWiersz(): array
     {
         return $this->sprzedazWiersz;
+    }
+
+    /**
+     * @return ParameterBag<ZakupWiersz>[]
+     */
+    public function getAllZakupWiersz(): array
+    {
+        return $this->zakupWiersz;
     }
 
     public function getSprzedazCtrl(): ParameterBag
@@ -91,6 +158,17 @@ final class Ewidencja
     public function setSprzedazCtrl(ParameterBag $sprzedazCtrl): static
     {
         $this->sprzedazCtrl = $sprzedazCtrl;
+        return $this;
+    }
+
+    public function getZakupCtrl(): ParameterBag
+    {
+        return $this->zakupCtrl;
+    }
+
+    public function setZakupCtrl(ParameterBag $zakupCtrl): static
+    {
+        $this->zakupCtrl = $zakupCtrl;
         return $this;
     }
 }
