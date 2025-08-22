@@ -39,3 +39,4 @@ file_put_contents('jpk.xml', $xml);
 ```
 
 The generator applies the correct namespace prefixes and recursively serializes nested `ParameterBag` structures.
+When a `ParameterBag` specifies a custom prefix, it takes precedence over the generator's default mapping.

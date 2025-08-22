@@ -50,7 +50,7 @@ final class XmlGenerator
             return null;
         }
 
-        $tagName = $this->resolveTagName($bag->getTagName());
+        $tagName = $this->resolveTagName($bag->getTagName(), $bag->getPrefix());
         $element = $dom->createElement($tagName);
 
         foreach ($bag->getAttributesList() as $attr) {
@@ -88,9 +88,9 @@ final class XmlGenerator
         return $element;
     }
 
-    private function resolveTagName(string $name): string
+    private function resolveTagName(string $name, ?string $prefix = null): string
     {
-        $prefix = $this->prefixMap[$name] ?? self::DEFAULT_PREFIX;
+        $prefix = $prefix ?? ($this->prefixMap[$name] ?? self::DEFAULT_PREFIX);
         return $prefix !== '' ? $prefix . ':' . $name : $name;
     }
 
