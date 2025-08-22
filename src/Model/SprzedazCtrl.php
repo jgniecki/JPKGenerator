@@ -17,9 +17,9 @@ final class SprzedazCtrl
 
     public function __construct()
     {
-        $this->liczbaWierszySprzedaz = new ParameterBag(
+        $this->liczbaWierszySprzedazy = new ParameterBag(
             "LiczbaWierszySprzedaz",
-            "float",
+            "int",
         );
 
         $this->podatekNalezny = new ParameterBag(
