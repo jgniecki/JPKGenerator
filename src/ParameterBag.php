@@ -68,6 +68,9 @@ class ParameterBag
         return $this->value;
     }
 
+    /**
+     * @return string[]
+     */
     public function getAttributesList(): array
     {
         return $this->attributesList;
