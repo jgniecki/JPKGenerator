@@ -9,12 +9,17 @@
 
 namespace DevLancer\JPKGenerator;
 
-//todo doadj ustawianie <T> które oznaczy typ
+/**
+ * @template T
+ */
 class ParameterBag
 {
     private string $tagName;
     private string $typeValue;
     private bool $nullable;
+    /**
+     * @var T|null
+     */
     private mixed $value = null;
     private array $attributesList;
     private array $attributes = [];
@@ -27,12 +32,28 @@ class ParameterBag
         $this->attributesList = $attributesList;
     }
 
+    /**
+     * @param T|null $value
+     * @return self<T>
+     */
     public function setValue($value): self
     {
-        if ($value === null && !$this->nullable) {
-            //todo error
-        } elseif (get_debug_type($value) != $this->typeValue) { //todo sprawdz czy dobrze to działa dla: int, string, float oraz konkretne obiekty
-            //todo error
+        if ($value === null) {
+            if (!$this->nullable) {
+                throw new \InvalidArgumentException(sprintf('%s cannot be null', $this->tagName));
+            }
+        } else {
+            if (class_exists($this->typeValue) || interface_exists($this->typeValue)) {
+                if (!($value instanceof $this->typeValue)) {
+                    throw new \InvalidArgumentException(
+                        sprintf('Expected instance of %s for %s, got %s', $this->typeValue, $this->tagName, get_debug_type($value))
+                    );
+                }
+            } elseif (get_debug_type($value) !== $this->typeValue) {
+                throw new \InvalidArgumentException(
+                    sprintf('Expected type %s for %s, got %s', $this->typeValue, $this->tagName, get_debug_type($value))
+                );
+            }
         }
 
         $this->value = $value;
@@ -40,7 +61,7 @@ class ParameterBag
     }
 
     /**
-     * @return mixed|null
+     * @return T|null
      */
     public function getValue(): mixed
     {
@@ -54,18 +75,21 @@ class ParameterBag
 
     public function setAttribute(string $name, $value): self
     {
-        if (in_array($name, $this->attributesList)) {
-            //todo error
+        if (!in_array($name, $this->attributesList, true)) {
+            throw new \InvalidArgumentException(sprintf('Attribute %s is not allowed', $name));
         }
 
         $this->attributes[$name] = $value;
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getAttribute(string $name)
     {
-        if (!isset($this->attributes[$name])) {
-            //todo error
+        if (!array_key_exists($name, $this->attributes)) {
+            throw new \InvalidArgumentException(sprintf('Attribute %s does not exist', $name));
         }
 
         return $this->attributes[$name];
