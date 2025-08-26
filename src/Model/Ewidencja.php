@@ -52,7 +52,9 @@ final class Ewidencja
         $parameterBag->setValue($sprzedazWiersz);
 
         $this->sprzedazWiersz[] = $parameterBag;
-        $this->regenerateLpSprzedazy();
+        if ($sprzedazWiersz->getLpSprzedazy()->getValue()) {
+            $this->regenerateLpSprzedazy();
+        }
 
         return $this;
     }
@@ -69,7 +71,9 @@ final class Ewidencja
         $parameterBag->setValue($zakupWiersz);
 
         $this->zakupWiersz[] = $parameterBag;
-        $this->regenerateLpZakupu();
+        if ($zakupWiersz->getLpZakupu()->getValue()) {
+            $this->regenerateLpZakupu();
+        }
 
         return $this;
     }
