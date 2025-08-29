@@ -19,6 +19,7 @@ final  class PozycjeSzczegolowe
     private ParameterBag $p_21;
     private ParameterBag $p_22;
     private ParameterBag $p_23;
+    private ParameterBag $p_24;
     private ParameterBag $p_25;
     private ParameterBag $p_27;
     private ParameterBag $p_29;
@@ -33,67 +34,71 @@ final  class PozycjeSzczegolowe
     {
         $this->p_11 = new ParameterBag(
             "P_11",
-            "float",
+            "int",
         );
         $this->p_12 = new ParameterBag(
             "P_12",
-            "float",
+            "int",
         );
         $this->p_19 = new ParameterBag(
             "P_19",
-            "float",
+            "int",
         );
         $this->p_20 = new ParameterBag(
             "P_20",
-            "float",
+            "int",
         );
         $this->p_21 = new ParameterBag(
             "P_21",
-            "float",
+            "int",
         );
         $this->p_22 = new ParameterBag(
             "P_22",
-            "float",
+            "int",
         );
         $this->p_23 = new ParameterBag(
             "P_23",
-            "float",
+            "int",
+        );
+        $this->p_24 = new ParameterBag(
+            "P_24",
+            "int",
         );
         $this->p_25 = new ParameterBag(
             "P_25",
-            "float",
+            "int",
         );
         $this->p_27 = new ParameterBag(
             "P_27",
-            "float",
+            "int",
         );
         $this->p_29 = new ParameterBag(
             "P_29",
-            "float",
+            "int",
         );
         $this->p_31 = new ParameterBag(
             "P_31",
-            "float",
+            "int",
         );
         $this->p_33 = new ParameterBag(
             "P_33",
-            "float",
+            "int",
         );
         $this->p_34 = new ParameterBag(
             "P_34",
-            "float",
+            "int",
         );
         $this->p_35 = new ParameterBag(
             "P_35",
-            "float",
+            "int",
         );
         $this->p_36 = new ParameterBag(
             "P_36",
-            "float",
+            "int",
         );
         $this->p_37 = new ParameterBag(
             "P_37",
-            "float",
+            "int",
         );
         $this->p_38 = new ParameterBag(
             "P_38",
@@ -175,6 +180,17 @@ final  class PozycjeSzczegolowe
     public function setP23(ParameterBag $p_23): static
     {
         $this->p_23 = $p_23;
+        return $this;
+    }
+
+    public function getP24(): ParameterBag
+    {
+        return $this->p_24;
+    }
+
+    public function setP24(ParameterBag $p_24): static
+    {
+        $this->p_24 = $p_24;
         return $this;
     }
 
