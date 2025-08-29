@@ -102,7 +102,7 @@ final  class PozycjeSzczegolowe
         );
         $this->p_38 = new ParameterBag(
             "P_38",
-            "float",
+            "int",
         );
     }
 
